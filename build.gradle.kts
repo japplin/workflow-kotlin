@@ -32,7 +32,6 @@ subprojects {
     google()
     mavenCentral()
   }
-
   apply(plugin = "org.jlleitschuh.gradle.ktlint")
   afterEvaluate {
     configurations.configureEach {
@@ -159,4 +158,16 @@ tasks.register<Copy>("siteDokka") {
   // custom directory doesn't.
   from(buildDir.resolve("dokka/gfmCollector/workflow"))
   into(buildDir.resolve("dokka/workflow"))
+}
+
+project(":workflow-core-compose") {
+  buildscript {
+    // repositories {
+    //   mavenCentral()
+    // }
+    dependencies {
+      classpath("app.cash.molecule:molecule-gradle-plugin:0.1.0")
+    }
+  }
+  apply(plugin = "app.cash.molecule")
 }

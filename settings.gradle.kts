@@ -24,6 +24,7 @@ include(
     ":samples:todo-android:app",
     ":trace-encoder",
     ":workflow-core",
+    ":workflow-core-compose",
     ":workflow-runtime",
     ":workflow-rx2",
     ":workflow-testing",
@@ -40,3 +41,9 @@ include(
 
 // Include the tutorial build so the IDE sees it when syncing the main project.
 includeBuild("samples/tutorial")
+
+pluginManagement {
+  repositories {
+    maven(url = "./maven-repo")
+  }
+}
